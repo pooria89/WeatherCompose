@@ -4,7 +4,8 @@ buildscript {
         compose_version = '1.2.0'
         retrofit_version = '2.9.0'
         lifecycle_version = "2.5.1"
-        navigation_version = "1.6.16-beta"
+//        navigation_version = "1.6.16-beta"
+        destination_version = '1.6.12-beta'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
@@ -17,4 +18,9 @@ plugins {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.deprecation = true
+    }
 }
