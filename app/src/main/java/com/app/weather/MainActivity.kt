@@ -3,6 +3,7 @@ package com.app.weather
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.app.weather.component.Toolbar
 import com.app.weather.screens.NavGraphs
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.rememberNavHostEngine
@@ -13,6 +14,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
+            Toolbar()
+
             val engine = rememberNavHostEngine()
             val navController = engine.rememberNavController()
 
@@ -25,5 +29,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 
