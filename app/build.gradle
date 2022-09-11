@@ -114,5 +114,6 @@ dependencies {
     ksp "io.github.raamcosta.compose-destinations:ksp:$destination_version"
     implementation "com.patrykandpatryk.vico:compose:1.2.0"
 
-
+    // RunTime Permission
+    implementation "com.google.accompanist:accompanist-permissions:0.23.1"
 }
