@@ -1,6 +1,4 @@
-package com.app.data.model
-
-import com.airbnb.lottie.compose.LottieAnimatable
+package com.app.domain.model
 
 data class WeatherModel(
     val id: Int,

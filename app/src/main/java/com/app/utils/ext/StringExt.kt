@@ -1,6 +1,6 @@
 package com.app.utils.ext
 
-import com.app.utils.Constants.YMD_FORMAT
+import com.app.common.Constants.YMD_FORMAT
 import java.text.SimpleDateFormat
 import java.util.*
 

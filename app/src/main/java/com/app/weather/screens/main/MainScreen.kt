@@ -30,8 +30,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.*
-import com.app.data.model.WeatherModel
+import com.app.domain.model.WeatherModel
 import com.app.utils.ext.findActivity
 import com.app.weather.R
 import com.app.weather.component.Toolbar
@@ -42,22 +43,33 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination
 @Composable
-fun MainScreen() {
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        BackgroundColor,
-                        BackgroundColorGradiant
+fun MainScreen(
+    viewModel: MainScreenViewModel = hiltViewModel()
+) {
+    val state = viewModel.state.value
+    state.placeId?.let { placeId ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            BackgroundColor,
+                            BackgroundColorGradiant
+                        )
                     )
                 )
-            )
-    ) {
-        Toolbar()
-        GetWeatherItems()
+        ) {
+            Toolbar()
+            GetWeatherItems()
+
+            if (state.error.isNotBlank()) {
+                Log.d("weatherApp", state.error)
+            }
+            if (state.isLoading) {
+                Log.d("weatherApp", state.isLoading.toString())
+            }
+        }
     }
 }
 

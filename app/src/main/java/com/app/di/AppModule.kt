@@ -1,7 +1,9 @@
 package com.app.di
 
-import com.app.data.api.ApiService
-import com.app.utils.Constants
+import com.app.data.repository.GetPlaceIdImpl
+import com.app.data.remote.ApiService
+import com.app.domain.repository.GetPlaceIdRepository
+import com.app.common.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +29,11 @@ object AppModule {
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
             .create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun providePlaceIdRepository(api: ApiService): GetPlaceIdRepository {
+        return GetPlaceIdImpl(api)
+    }
 
 }

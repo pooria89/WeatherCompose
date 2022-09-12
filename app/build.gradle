@@ -92,6 +92,7 @@ dependencies {
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    implementation "androidx.activity:activity-ktx:1.5.1"
 
     // Coil Image Loading
     implementation "io.coil-kt:coil-compose:2.2.0"
