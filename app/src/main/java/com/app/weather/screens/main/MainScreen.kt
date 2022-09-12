@@ -44,10 +44,10 @@ import com.ramcosta.composedestinations.annotation.Destination
 @Destination
 @Composable
 fun MainScreen(
-    viewModel: MainScreenViewModel = hiltViewModel()
+//    viewModel: MainScreenViewModel = hiltViewModel()
 ) {
-    val state = viewModel.state.value
-    state.placeId?.let { placeId ->
+//    val state = viewModel.state.value
+//    state.placeId?.let { placeId ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -63,13 +63,13 @@ fun MainScreen(
             Toolbar()
             GetWeatherItems()
 
-            if (state.error.isNotBlank()) {
-                Log.d("weatherApp", state.error)
-            }
-            if (state.isLoading) {
-                Log.d("weatherApp", state.isLoading.toString())
-            }
-        }
+//            if (state.error.isNotBlank()) {
+//                Log.d("weatherApp", state.error)
+//            }
+//            if (state.isLoading) {
+//                Log.d("weatherApp", state.isLoading.toString())
+//            }
+//        }
     }
 }
 
